@@ -29,7 +29,7 @@ if [[ -z $URL ]] || [[ $SAYI -eq 0 ]]; then
 fi
 
 count=$(ps aux | grep curl | wc -l)
-while $count -lt $SAYI; do
+while $count -lt $SAYI+1; do
   curl -L "$URL">/dev/null 2>&1 &
   ((count++))
   if [[ count -eq $SAYI ]];
