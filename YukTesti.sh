@@ -31,5 +31,3 @@ fi
 for i in $(seq 1 $SAYI); do
   curl -L "$URL">/dev/null 2>&1 &
 done
-
-echo "Toplam $SAYI adet GET isteği $URL adresine atıldı."
